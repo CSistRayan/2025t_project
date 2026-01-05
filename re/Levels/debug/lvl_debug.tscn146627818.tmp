@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu4r4swwxdhe1"]
+
+[ext_resource type="PackedScene" uid="uid://b76kspx4s1383" path="res://player/player_pawn.tscn" id="1_0r2qi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0r2qi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_g612d"]
+sky_material = SubResource("ProceduralSkyMaterial_0r2qi")
+
+[sub_resource type="Environment" id="Environment_gxut0"]
+background_mode = 2
+sky = SubResource("Sky_g612d")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="LvlDebug" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gxut0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42959595, -0.222229, -1.9646759)
+use_collision = true
+size = Vector3(9.470764, 0.555542, 11.279755)
+
+[node name="PlayerPawn" parent="." instance=ExtResource("1_0r2qi")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.56968236, 1.055542, -0.16979694)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8645381, 0.50256735, 0, -0.50256735, 0.8645381, 0, 3.1452851, 2.9496393)
