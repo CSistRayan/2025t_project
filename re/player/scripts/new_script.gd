@@ -22,9 +22,9 @@ func _physics_process(delta: float) -> void:
 	if input_dir.y == 0:
 		velocity = self.global_transform.basis.z * 0
 	elif input_dir.y < 0:
-		velocity = self.global_transform.basis.z * 1
+		velocity = self.global_transform.basis.z * SPEED
 	elif input_dir.y > 0:
-		velocity = self.global_transform.basis.z * -1
+		velocity = self.global_transform.basis.z * -SPEED
 	
 	print(input_dir.y)
 
