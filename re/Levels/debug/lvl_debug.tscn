@@ -26,7 +26,7 @@ use_collision = true
 size = Vector3(9.470764, 0.555542, 11.279755)
 
 [node name="PlayerPawn" parent="." instance=ExtResource("1_0r2qi")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.56968236, 1.055542, -0.16979694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56968236, 2.1557477, -0.16979694)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8645381, 0.50256735, 0, -0.50256735, 0.8645381, 0, 3.1452851, 2.9496393)
+transform = Transform3D(1, 0, 0, 0, 0.8645381, 0.50256735, 0, -0.50256735, 0.8645381, 0, 4.9902325, 4.1517143)
