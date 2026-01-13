@@ -27,6 +27,8 @@ size = Vector3(32.465775, 0.5321655, 29.567924)
 
 [node name="PlayerPawn" parent="." instance=ExtResource("1_0r2qi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.56968236, 2.1557477, -0.16979694)
+movement_Speed = null
+turning_Speed = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8645381, 0.50256735, 0, -0.50256735, 0.8645381, 0, 4.9902325, 4.1517143)
