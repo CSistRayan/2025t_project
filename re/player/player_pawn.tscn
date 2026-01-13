@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b76kspx4s1383"]
+[gd_scene load_steps=6 format=3 uid="uid://b76kspx4s1383"]
 
-[ext_resource type="Script" uid="uid://dxb65se7m2v2n" path="res://player/scripts/player_MainScript.gd" id="1_jv67a"]
+[ext_resource type="Script" uid="uid://dxb65se7m2v2n" path="res://player/scripts/player_movement.gd" id="1_jv67a"]
+[ext_resource type="Script" uid="uid://x28gkjhuheea" path="res://player/scripts/player_nbt.gd" id="2_6d8nm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bvodg"]
 
@@ -28,3 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79512817, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraDir"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.2, 0, -1, -8.742278e-09, 0, 0.6, 0.07480115)
+
+[node name="nbt" type="Node" parent="."]
+script = ExtResource("2_6d8nm")
