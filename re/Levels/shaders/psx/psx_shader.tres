@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qts8bl2s3f3c"]
+
+[ext_resource type="Shader" uid="uid://11dk42qpygoh" path="res://Levels/shaders/psx/psx_shaderScript.gdshader" id="1_hvjle"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hvjle")
+shader_parameter/TwixelAngle = 0.0
+shader_parameter/PixelSize = 2.50000007125
+shader_parameter/Posterize = true
+shader_parameter/ColorSteps = 64
+shader_parameter/UsePalette = false
+shader_parameter/PaletteSize = 8
+shader_parameter/PaletteColor0 = Color(0.05, 0.05, 0.05, 1)
+shader_parameter/PaletteColor1 = Color(0.25, 0.15, 0.12, 1)
+shader_parameter/PaletteColor2 = Color(0.5, 0.35, 0.25, 1)
+shader_parameter/PaletteColor3 = Color(0.9, 0.85, 0.7, 1)
+shader_parameter/Brightness = 1.0
+shader_parameter/Saturation = 1.0
+shader_parameter/Contrast = 1.0

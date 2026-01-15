@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b76kspx4s1383"]
+[gd_scene load_steps=8 format=3 uid="uid://b76kspx4s1383"]
 
 [ext_resource type="Script" uid="uid://dxb65se7m2v2n" path="res://player/scripts/player_movement.gd" id="1_jv67a"]
 [ext_resource type="Script" uid="uid://x28gkjhuheea" path="res://player/scripts/player_nbt.gd" id="2_6d8nm"]
+[ext_resource type="Material" uid="uid://qts8bl2s3f3c" path="res://Levels/shaders/psx/psx_shader.tres" id="3_4ol1u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bvodg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6d8nm"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_jv67a"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3bg2i"]
 
 [node name="PlayerPawn" type="CharacterBody3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -32,3 +35,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.2, 0, -1, -8.742278e-09, 0,
 
 [node name="nbt" type="Node" parent="."]
 script = ExtResource("2_6d8nm")
+
+[node name="shader" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 1.5064985, 0)
+mesh = SubResource("QuadMesh_3bg2i")
+surface_material_override/0 = ExtResource("3_4ol1u")
