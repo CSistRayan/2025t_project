@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdv70r1825ujh"]
+[gd_scene load_steps=6 format=3 uid="uid://cdv70r1825ujh"]
 
+[ext_resource type="Script" uid="uid://ud1o7rp74x81" path="res://Levels/map_school.gd" id="1_fadt0"]
 [ext_resource type="Shader" uid="uid://11dk42qpygoh" path="res://Levels/shaders/psx/psx_shaderScript.gdshader" id="1_qbm3t"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qbm3t"]
@@ -24,6 +25,7 @@ shader_parameter/Contrast = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_fadt0"]
 
 [node name="MapSchool" type="Node3D"]
+script = ExtResource("1_fadt0")
 
 [node name="shader" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.16838618, 0, -0.9857211, 0, 1, 0, 0.9857211, 0, -0.16838618, 0, 2.6035385, 0.037017107)

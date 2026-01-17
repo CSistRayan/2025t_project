@@ -1,7 +1,7 @@
 extends Node
 
 
-signal hurt(amount: int)
+
 
 func _ready() -> void:
 	pass
