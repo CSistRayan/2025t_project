@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxsmqodmlf4mc"]
+
+[ext_resource type="Script" uid="uid://qh7t1ky5nn2u" path="res://player/scripts/scenes/hurtBOX.gd" id="1_bjpyd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mxq0r"]
+
+[node name="HitBox" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_bjpyd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_mxq0r")

@@ -3,15 +3,12 @@ extends Node2D
 
 
 func character_UISet(character):
-	match char:
-		'char_rayan':
-			add_child(load("res://player/assets/char_rayan/UI/player_view.tscn").instance)
 	pass
 
 
 func _ready() -> void:
 	
-	character_UISet(player.character)
+	
 	
 	pass # Replace with function body.
 
