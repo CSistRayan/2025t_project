@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var movement_Speed = 2.0
 @export var turning_Speed = 0.025
 
-signal txt(pssdText)
+
 
 func _physics_process(_delta: float) -> void:
 	#
@@ -20,7 +20,7 @@ func _physics_process(_delta: float) -> void:
 		# Fix later
 		movement_direction = abs(movement_direction * movement_Speed)
 	else:
-		movement_direction = movement_direction * movement_Speed
+		movement_direction = abs(movement_direction * movement_Speed)
 	
 	
 	velocity = self.global_transform.basis.z * movement_direction
@@ -40,6 +40,3 @@ func _physics_process(_delta: float) -> void:
 	### End of Movement
 	
 	move_and_slide()
-	
-func txtprnt(passedText):
-	print(passedText)
