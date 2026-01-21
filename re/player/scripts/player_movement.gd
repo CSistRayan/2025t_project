@@ -6,12 +6,18 @@ extends CharacterBody3D
 
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#
 	### MOVEMENT SCRIPT
 	### original (https://godotforums.org/d/36094-3d-tank-controls-for-player-movement/5)
 	### modified to fix rotation issues
 	#
+	
+	# gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	
 	var input_direction : Vector2 =  Input.get_vector("in_right","in_left","in_backward", "in_forward")
 	var movement_direction = input_direction.y
 	

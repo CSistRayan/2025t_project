@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu4r4swwxdhe1"]
+[gd_scene load_steps=11 format=3 uid="uid://cu4r4swwxdhe1"]
 
 [ext_resource type="PackedScene" uid="uid://b76kspx4s1383" path="res://player/player_pawn.tscn" id="1_0r2qi"]
 [ext_resource type="Script" uid="uid://dbprworpk4cei" path="res://Levels/debug/lvl_debugScript.gd" id="1_fqj0c"]
 [ext_resource type="Material" uid="uid://qts8bl2s3f3c" path="res://Levels/shaders/psx/psx_shader.tres" id="2_g612d"]
 [ext_resource type="Script" uid="uid://pqfrd1kqmvu5" path="res://player/scripts/HUDmanager.gd" id="3_gxut0"]
 [ext_resource type="PackedScene" uid="uid://cjl21tspsudfu" path="res://player/assets/debug_UI/debug_Menu.tscn" id="3_qwy0y"]
+[ext_resource type="PackedScene" uid="uid://cxsmqodmlf4mc" path="res://player/scripts/scenes/hitBOX.tscn" id="6_x0dgd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0r2qi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -51,3 +52,6 @@ follow_viewport_enabled = true
 script = ExtResource("3_gxut0")
 
 [node name="Debug" parent="HUD/viewUI" instance=ExtResource("3_qwy0y")]
+
+[node name="HitBox" parent="." instance=ExtResource("6_x0dgd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57, 0.36112416, -0.177)
