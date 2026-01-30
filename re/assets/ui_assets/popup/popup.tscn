@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://jsd0oea4p0vb"]
+
+[ext_resource type="Texture2D" uid="uid://c13bx6ie8cowa" path="res://assets/ui_assets/popup/popup.png" id="1_jwytu"]
+[ext_resource type="Script" uid="uid://cfe0dqf4rylpv" path="res://assets/ui_assets/popup/popup_signals.gd" id="1_wywjm"]
+[ext_resource type="FontFile" uid="uid://bw26hbke7sl4v" path="res://assets/ui_assets/cambria.ttf" id="2_2tn5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwytu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53wo3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qreid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tn5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wywjm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e15bc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gcoy"]
+
+[node name="Popup" type="Control" unique_id=75650284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wywjm")
+
+[node name="Popup" type="Sprite2D" parent="." unique_id=2003277943]
+position = Vector2(583, 494)
+texture = ExtResource("1_jwytu")
+
+[node name="text" type="Label" parent="." unique_id=198766908]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 371.0
+offset_right = 838.0
+offset_bottom = 556.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_2tn5d")
+theme_override_font_sizes/font_size = 25
+text = "base text"
+
+[node name="accept" type="Button" parent="." unique_id=628462560]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 570.0
+offset_right = 840.0
+offset_bottom = 601.0
+theme_override_colors/font_color = Color(0.5529412, 0.5529412, 0.5529412, 1)
+theme_override_colors/font_focus_color = Color(0, 0.3647059, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.3647059, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.57219726, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2tn5d")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jwytu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_53wo3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qreid")
+action_mode = 0
+text = "button"
+
+[node name="reject" type="Button" parent="." unique_id=393043404]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 570.0
+offset_right = 497.0
+offset_bottom = 601.0
+theme_override_colors/font_color = Color(0.55455345, 0.55455434, 0.55455345, 1)
+theme_override_colors/font_focus_color = Color(0.76156056, 4.543543e-05, 2.4257899e-05, 1)
+theme_override_colors/font_hover_color = Color(0.7607843, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.9955246, 3.657937e-06, 7.70092e-07, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2tn5d")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2tn5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wywjm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e15bc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1gcoy")
+action_mode = 0
+text = "button"
+
+[connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]

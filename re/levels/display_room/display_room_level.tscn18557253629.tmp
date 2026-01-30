@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://beh1cpgpn4b31"]
+
+[ext_resource type="Material" uid="uid://5rd6m273pxwj" path="res://levels/display_room/assets/wood.tres" id="1_kjd8p"]
+[ext_resource type="Script" uid="uid://dekh6mvcrk13r" path="res://levels/display_room/display_room_level.gd" id="1_wdlm3"]
+[ext_resource type="PackedScene" uid="uid://b76kspx4s1383" path="res://player/player_pawn.tscn" id="2_0yw3j"]
+[ext_resource type="Material" uid="uid://bxywbweyb2fo" path="res://levels/display_room/assets/brickwall.tres" id="2_gfsu3"]
+[ext_resource type="Script" uid="uid://pqfrd1kqmvu5" path="res://player/scripts/HUDmanager.gd" id="2_i7rpg"]
+[ext_resource type="PackedScene" uid="uid://cowfb1v3wmoot" path="res://player/scripts/scenes/camera/cameraPoint.tscn" id="2_vk3jd"]
+[ext_resource type="PackedScene" uid="uid://jsd0oea4p0vb" path="res://assets/ui_assets/popup/popup.tscn" id="3_ya5gm"]
+[ext_resource type="Material" uid="uid://qts8bl2s3f3c" path="res://assets/shaders/psx/psx_shader.tres" id="4_5mnxe"]
+[ext_resource type="PackedScene" uid="uid://cjl21tspsudfu" path="res://player/ui/debug_UI/debug_Menu.tscn" id="4_hlyd1"]
+[ext_resource type="Texture2D" uid="uid://cug01586u3008" path="res://levels/display_room/assets/table/Wooden_Table_color.png" id="5_bxo6w"]
+[ext_resource type="ArrayMesh" uid="uid://by4jolgfajovn" path="res://levels/display_room/assets/table/Wooden_Table.obj" id="8_rkjvy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kjd8p"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_0yw3j"]
+sky_material = SubResource("ProceduralSkyMaterial_kjd8p")
+
+[sub_resource type="Environment" id="Environment_gfsu3"]
+background_mode = 2
+sky = SubResource("Sky_0yw3j")
+ambient_light_source = 3
+ambient_light_energy = 0.1
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axlc1"]
+albedo_texture = ExtResource("5_bxo6w")
+
+[sub_resource type="BoxMesh" id="BoxMesh_vk3jd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7rpg"]
+albedo_texture = ExtResource("5_bxo6w")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxo6w"]
+size = Vector3(4.0234375, 1.0998383, 1.6835938)
+
+[node name="DisplayRoomLevel" type="Node3D" unique_id=1339298679]
+script = ExtResource("1_wdlm3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=695471199]
+environment = SubResource("Environment_gfsu3")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1046255208]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="viewUI" type="Node2D" parent="HUD" unique_id=231240812]
+script = ExtResource("2_i7rpg")
+
+[node name="Popup" parent="HUD/viewUI" unique_id=75650284 instance=ExtResource("3_ya5gm")]
+visible = false
+
+[node name="Debug" parent="HUD/viewUI" unique_id=1838580865 instance=ExtResource("4_hlyd1")]
+
+[node name="main_room" type="Node3D" parent="." unique_id=1842625877]
+
+[node name="CameraPoint" parent="main_room" unique_id=1771535617 instance=ExtResource("2_vk3jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8419428, 2.8472867, 3.0303183)
+
+[node name="Camera3D" parent="main_room/CameraPoint" index="0"]
+transform = Transform3D(0.7738402, 0.0121592935, 0.6332642, 0, 0.9998157, -0.019197444, -0.6333809, 0.014855754, 0.77369756, 0.45208406, -0.51618075, 0.13910317)
+
+[node name="MainRoomLight" type="SpotLight3D" parent="main_room" unique_id=47221147]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.035, 8.452394, -0.871)
+light_energy = 0.728
+light_indirect_energy = 0.318
+light_volumetric_fog_energy = 0.409
+spot_range = 11.75454
+spot_angle = 89.99
+
+[node name="CSGBox3D" type="CSGBox3D" parent="main_room" unique_id=1574648012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00062668324, 0.0033294559, -0.7221403)
+material_override = ExtResource("1_kjd8p")
+use_collision = true
+size = Vector3(10, 0.5, 8.636719)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="main_room" unique_id=1806784395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067214966, 2.8401768, -0.6493468)
+visible = false
+material_override = SubResource("StandardMaterial3D_axlc1")
+use_collision = true
+size = Vector3(10, 0.5, 8.461426)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="main_room" unique_id=1799769126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.922826, 1.6694527, -0.752594)
+material_override = ExtResource("2_gfsu3")
+use_collision = true
+size = Vector3(0.1, 3, 8.698242)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="main_room" unique_id=1628597013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9914846, 1.6694527, -0.8080139)
+material_override = ExtResource("2_gfsu3")
+use_collision = true
+size = Vector3(0.1, 3, 8.809082)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="main_room" unique_id=471121038]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.115159035, 1.6694527, -5.049618)
+material_override = ExtResource("2_gfsu3")
+use_collision = true
+size = Vector3(0.1, 3, 9.865352)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="main_room" unique_id=1420400606]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.115159035, 1.6694527, 3.5919003)
+material_override = ExtResource("2_gfsu3")
+use_collision = true
+size = Vector3(0.1, 3, 9.865352)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="main_room" unique_id=1495198594]
+transform = Transform3D(0.7033947, -0.2891082, 0.6493476, 0, 0.9135454, 0.40673664, -0.71079946, -0.2860964, 0.642583, 4.721, 2.506, 3.363)
+light_energy = 0.23
+spot_range = 4.339
+spot_attenuation = 2.96
+spot_angle = 60.85
+
+[node name="shader_box" type="MeshInstance3D" parent="main_room" unique_id=1620848407]
+transform = Transform3D(10.540033, 0, 0, 0, 4.2327714, 0, 0, 0, 7.4763145, -0.0018229485, 1.4237144, 0.20306177)
+material_override = ExtResource("4_5mnxe")
+mesh = SubResource("BoxMesh_vk3jd")
+metadata/_edit_lock_ = true
+
+[node name="Table" type="StaticBody3D" parent="main_room" unique_id=948353995]
+
+[node name="WoodenTable" type="MeshInstance3D" parent="main_room/Table" unique_id=1375436261]
+transform = Transform3D(-0.02, 0, 0, 0, 0.01, -3.0199159e-09, 0, 1.5099579e-09, 0.02, 0.849, 0.273387, -0.382)
+material_override = SubResource("StandardMaterial3D_i7rpg")
+mesh = ExtResource("8_rkjvy")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main_room/Table" unique_id=320035459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72387767, 0.73538136, -0.4453125)
+shape = SubResource("BoxShape3D_bxo6w")
+
+[node name="PlayerPawn" parent="." unique_id=1913638133 instance=ExtResource("2_0yw3j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5877719, 1.0492921, 1.6203175)
+movement_Speed = 2.0
+turning_Speed = 0.025
+can_move = true
+
+[editable path="main_room/CameraPoint"]

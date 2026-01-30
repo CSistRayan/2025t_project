@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://cu4r4swwxdhe1"]
+
+[ext_resource type="PackedScene" uid="uid://b76kspx4s1383" path="res://player/player_pawn.tscn" id="1_0r2qi"]
+[ext_resource type="Script" uid="uid://dbprworpk4cei" path="res://levels/debug/lvl_debugScript.gd" id="1_fqj0c"]
+[ext_resource type="Material" uid="uid://qts8bl2s3f3c" path="res://assets/shaders/psx/psx_shader.tres" id="2_g612d"]
+[ext_resource type="Script" uid="uid://pqfrd1kqmvu5" path="res://player/scripts/HUDmanager.gd" id="3_gxut0"]
+[ext_resource type="PackedScene" uid="uid://cjl21tspsudfu" path="res://player/ui/debug_UI/debug_Menu.tscn" id="3_qwy0y"]
+[ext_resource type="PackedScene" uid="uid://cowfb1v3wmoot" path="res://player/scripts/scenes/camera/cameraPoint.tscn" id="6_e7ueu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0r2qi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_g612d"]
+sky_material = SubResource("ProceduralSkyMaterial_0r2qi")
+
+[sub_resource type="Environment" id="Environment_gxut0"]
+background_mode = 2
+sky = SubResource("Sky_g612d")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0r2qi"]
+
+[node name="LvlDebug" type="Node3D"]
+script = ExtResource("1_fqj0c")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gxut0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2625422, -0.19442797, -4.5169005)
+use_collision = true
+size = Vector3(32.465775, 0.5321655, 29.567924)
+
+[node name="PlayerPawn" parent="." instance=ExtResource("1_0r2qi")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5747626, 2.1557477, 1.5789232)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8645381, 0.50256735, 0, -0.50256735, 0.8645381, 0, 4.9902325, 4.728085)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20782351, 5.6241293, -1.3170807)
+mesh = SubResource("QuadMesh_0r2qi")
+surface_material_override/0 = ExtResource("2_g612d")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="viewUI" type="Node2D" parent="HUD"]
+script = ExtResource("3_gxut0")
+
+[node name="Debug" parent="HUD/viewUI" instance=ExtResource("3_qwy0y")]
+
+[node name="CameraPoint" parent="." instance=ExtResource("6_e7ueu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9823842, 2.7977948, -2.2267227)
+
+[node name="Camera3D" parent="CameraPoint" index="0"]
+transform = Transform3D(0.9695993, 0, 0.24469821, 0, 1, 0, -0.24469821, 0, 0.9695993, 0, 0, 0)
+
+[node name="Area3D" parent="CameraPoint" index="1"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.378, -1.018, -1.742)
+
+[editable path="CameraPoint"]

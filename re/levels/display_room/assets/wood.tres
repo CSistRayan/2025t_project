@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5rd6m273pxwj"]
+
+[ext_resource type="Texture2D" uid="uid://bcitxoyi1uaoi" path="res://levels/display_room/assets/wood.png" id="1_8kikb"]
+
+[resource]
+albedo_texture = ExtResource("1_8kikb")
+metallic_specular = 0.0
+emission_energy_multiplier = 15.5
+uv1_scale = Vector3(10, 10, 10)
+uv2_scale = Vector3(7.295, 7.295, 7.295)
